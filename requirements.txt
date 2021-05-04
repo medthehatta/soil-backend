@@ -1,0 +1,6 @@
+requests
+fastapi
+diskcache
+jupyterlab
+uvicorn
+cytoolz

@@ -1,0 +1,15 @@
+#!/bin/bash
+prefix="$(dirname -- "$(readlink -f -- "$0")")"
+
+filepath="${1:-"$prefix/debug_session.py"}"
+
+if [ -e venv ]; then
+    . venv/bin/activate
+else
+    python -m venv ; . venv/bin/activate ; pip install -r requirements.txt
+fi
+
+while true; do
+    python -i "$filepath"
+    sleep 0.2
+done

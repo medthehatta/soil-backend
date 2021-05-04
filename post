@@ -1,0 +1,5 @@
+#!/bin/bash
+
+path="$1"; shift
+
+curl -XPOST -d@- -w"\n" "http://localhost:8000/${path#/}" "$@" < /dev/stdin

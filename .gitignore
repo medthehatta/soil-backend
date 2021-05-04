@@ -1,0 +1,9 @@
+*.sw[lmnop]
+__pycache__
+venv
+.vscode
+.ipynb_checkpoints
+
+# disk caches
+map_unit
+soil_series
