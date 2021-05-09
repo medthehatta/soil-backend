@@ -1,0 +1,13 @@
+version: "3.8"
+services:
+  mongo:
+    image : mongo
+    container_name: mongo
+    environment:
+      - PUID=1000
+      - PGID=1000
+    volumes:
+      - /home/med/soil/soilbackend/db:/data/db
+    ports:
+      - 27017:27017
+    restart: unless-stopped
