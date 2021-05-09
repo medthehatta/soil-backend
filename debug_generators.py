@@ -6,10 +6,6 @@ from types import SimpleNamespace
 from util import *
 
 
-def uuid():
-    return str(uuidlib.uuid4())
-
-
 def random_inventory(size):
 
     item_names = line_delimit(slurp_file("names.txt"))

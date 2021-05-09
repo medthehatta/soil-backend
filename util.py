@@ -1,5 +1,10 @@
 import json
 from collections import defaultdict
+import uuid as uuidlib
+
+
+def uuid():
+    return str(uuidlib.uuid4())
 
 
 def slurp_file(path):
@@ -20,7 +25,7 @@ def read_json(path):
     try:
         with open(path) as fh:
             return json.load(fh)
-    except NotADirectoryError:
+    except (FileNotFoundError, NotADirectoryError):
         return None
 
 

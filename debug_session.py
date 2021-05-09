@@ -5,7 +5,6 @@ from collections import defaultdict
 from collections import Counter
 from contextlib import contextmanager
 from importlib import reload
-import uuid as uuidlib
 from types import SimpleNamespace
 from pprint import pprint
 
