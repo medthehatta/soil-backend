@@ -5,3 +5,4 @@ jupyterlab
 uvicorn
 cytoolz
 tabulate
+pymongo
