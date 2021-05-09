@@ -23,10 +23,7 @@ def without_key(key, dic):
 
 
 def initialize():
-    player_state = {
-        "inventory": appdb.get_items("inventory/0")["items"],
-        "money": appdb.get_items("currentplayer")["money"],
-    }
+    player_state = {}
 
 
 class TabularUi:
@@ -87,4 +84,4 @@ class InventoryUi(TabularUi):
 
 if __name__ == "__main__":
     initialize()
-    inv = InventoryUi(player_state["inventory"])
+    inv = InventoryUi(player_state.get("inventory", []))
