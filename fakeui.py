@@ -4,11 +4,6 @@ from cytoolz import curry
 import appdb
 
 
-ui_state = {
-    "last_num_mapping": None,
-}
-
-
 player_state = {}
 
 
@@ -23,7 +18,7 @@ def without_key(key, dic):
 
 
 def initialize():
-    player_state = {}
+    player_state["inventory"] = appdb.get_player_inventory()
 
 
 class TabularUi:
