@@ -9,11 +9,7 @@ ui_state = {
 }
 
 
-player_state = {
-    "location": None,
-    "money": None,
-    "inventory": None,
-}
+player_state = {}
 
 
 @curry
@@ -26,22 +22,11 @@ def without_key(key, dic):
     return {k: v for (k, v) in dic.items() if k != key}
 
 
-def draw_table(records, sort_by=None, desc=False):
-    if sort_by:
-        sort_key = lambda x: x[sort_by]
-    else:
-        sort_key = lambda x: 1
-    with_sort = sorted(records, key=sort_key, reverse=desc)
-    with_num = [{"i": i, **record} for (i, record) in enumerate(with_sort, 1)]
-    id_stripped = [without_key("_id", record) for record in with_num]
-    num_mapping = {r["i"]: r for r in with_num}
-    ui_state["last_num_mapping"] = num_mapping
-    print(tabulate(id_stripped, headers="keys"))
-
-
 def initialize():
-    player_state["inventory"] = appdb.get_items("inventory/0")["items"]
-    player_state["money"] = 1000
+    player_state = {
+        "inventory": appdb.get_items("inventory/0")["items"],
+        "money": appdb.get_items("currentplayer")["money"],
+    }
 
 
 class TabularUi:
