@@ -4,3 +4,4 @@ diskcache
 jupyterlab
 uvicorn
 cytoolz
+tabulate
