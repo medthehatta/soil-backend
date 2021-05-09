@@ -9,6 +9,7 @@ from types import SimpleNamespace
 from pprint import pprint
 
 from cytoolz import memoize
+import pymongo
 
 from util import *
 
@@ -17,6 +18,7 @@ import map_unit as mu; reload(mu)
 import parse as pr; reload(pr)
 import appdb; reload(appdb)
 import fakeui; reload(fakeui)
+import debug_generators as dg; reload(dg)
 
 
 @memoize
@@ -36,3 +38,7 @@ def random_soil_item():
         horizon = "N/A"
     quality = random.randint(10, 1000)
     return {"series": series, "horizon": horizon, "quality": quality}
+
+
+mongo = pymongo.MongoClient()
+db = mongo.get_database("soil")

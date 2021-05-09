@@ -14,7 +14,7 @@ def random_inventory(size):
         name = random.choice(item_names)
         quality = random.randint(10, 1000)
         quantity = random.randint(1, 1000)
-        return {"_id": uuid(), "name": name, "quality": quality, "quantity": quantity}
+        return {"name": name, "quality": quality, "quantity": quantity}
 
     return sorted([_item() for _ in range(size)], key=lambda x: x["name"])
 
@@ -61,7 +61,6 @@ class RandomMarketGenerator:
     def format_transaction(self, trans):
         (give, price) = trans
         return {
-            "_id": uuid(),
             "gives": give.name,
             "quality": give.quality,
             "price": price,
