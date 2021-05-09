@@ -1,4 +1,0 @@
-{
-    "inventory/#": {"path": "inventory", "fields": ["_id","name","quality","quantity"]},
-    "market": {"path": "market", "fields": ["_id","gives","quality","price"]}
-}
